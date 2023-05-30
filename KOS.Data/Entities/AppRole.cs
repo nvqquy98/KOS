@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace KOS.Data.Entities
 {
     [Table("AppRoles")]
-    public class AppRole : IdentityRole<Guid>
+    public class AppRole : IdentityRole<string>
     {
         public AppRole() : base()
         {

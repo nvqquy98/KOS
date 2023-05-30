@@ -1,0 +1,5 @@
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net5.0\KOS.Application.csproj.AssemblyReference.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net5.0\KOS.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net5.0\KOS.Application.AssemblyInfoInputs.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net5.0\KOS.Application.AssemblyInfo.cs
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net5.0\KOS.Application.csproj.CoreCompileInputs.cache

@@ -8,8 +8,7 @@ namespace KOS.Data.Interfaces
 {
     public interface IDateTracking
     {
-        DateTime DateCreated { set; get; }
-
-        DateTime DateModified { set; get; }
+        public DateTime CreateDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
     }
 }

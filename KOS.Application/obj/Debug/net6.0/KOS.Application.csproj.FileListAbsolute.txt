@@ -1,0 +1,12 @@
+C:\Users\tanlx\Documents\KOS\KOS.Application\bin\Debug\net6.0\KOS.Application.deps.json
+C:\Users\tanlx\Documents\KOS\KOS.Application\bin\Debug\net6.0\KOS.Application.dll
+C:\Users\tanlx\Documents\KOS\KOS.Application\bin\Debug\net6.0\KOS.Application.pdb
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.csproj.AssemblyReference.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.AssemblyInfoInputs.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.AssemblyInfo.cs
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.csproj.CoreCompileInputs.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.dll
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\refint\KOS.Application.dll
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\KOS.Application.pdb
+C:\Users\tanlx\Documents\KOS\KOS.Application\obj\Debug\net6.0\ref\KOS.Application.dll

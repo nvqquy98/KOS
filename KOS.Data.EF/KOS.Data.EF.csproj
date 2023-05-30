@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Configurations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\KOS.Data\KOS.Data.csproj" />
     <ProjectReference Include="..\KOS.Infrastructure\KOS.Infrastructure.csproj" />
     <ProjectReference Include="..\KOS.Utilities\KOS.Utilities.csproj" />

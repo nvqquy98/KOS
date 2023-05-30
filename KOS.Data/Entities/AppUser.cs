@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using KOS.Data.Enums;
+using KOS.Data.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -9,30 +12,37 @@ using System.Threading.Tasks;
 namespace KOS.Data.Entities
 {
     [Table("AppUsers")]
-    public class AppUser : IdentityUser<Guid>, IDateTracking, ISwitchable
+    public class AppUser : IdentityUser<string>, IDateTracking, ISwitchable
     {
-        public AppUser() { }
-        public AppUser(Guid id, string fullName, string userName,
-            string email, string phoneNumber, string avatar, Status status)
+        public AppUser()
+        {
+        }
+        public AppUser(string id, string userName, string firstName, string lastName,
+            string email, string phoneNumber, DateTime dob, string avatarUrl)
         {
             Id = id;
-            FullName = fullName;
             UserName = userName;
+            FirstName = firstName;
+            LastName = lastName;
             Email = email;
             PhoneNumber = phoneNumber;
-            Avatar = avatar;
-            Status = status;
+            Dob = dob;
+            AvatarUrl = avatarUrl;
         }
-        public string FullName { get; set; }
+        [MaxLength(50)]
+        [Required]
+        public string FirstName { get; set; }
 
-        public DateTime? BirthDay { set; get; }
+        [MaxLength(50)]
+        [Required]
+        public string LastName { get; set; }
 
-        public decimal Balance { get; set; }
+        public string AvatarUrl { get; set; }
+        [Required]
+        public DateTime Dob { get; set; }
 
-        public string Avatar { get; set; }
-
-        public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
         public Status Status { get; set; }
     }
 }

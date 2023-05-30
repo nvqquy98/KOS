@@ -1,0 +1,12 @@
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\bin\Debug\net6.0\KOS.Application.Dapper.deps.json
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\bin\Debug\net6.0\KOS.Application.Dapper.dll
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\bin\Debug\net6.0\KOS.Application.Dapper.pdb
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.csproj.AssemblyReference.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.AssemblyInfoInputs.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.AssemblyInfo.cs
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.csproj.CoreCompileInputs.cache
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.dll
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\refint\KOS.Application.Dapper.dll
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\KOS.Application.Dapper.pdb
+C:\Users\tanlx\Documents\KOS\KOS.Application.Dapper\obj\Debug\net6.0\ref\KOS.Application.Dapper.dll

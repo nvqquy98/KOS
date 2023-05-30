@@ -16,7 +16,7 @@ namespace KOS.Utilities.Constants
 
         public const string ProductTag = "Product";
         public const string BlogTag = "Blog";
-        public class AppRole
+        public class Role
         {
             public const string AdminRole = "Admin";
         }
