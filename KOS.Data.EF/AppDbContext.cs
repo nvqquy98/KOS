@@ -3,12 +3,15 @@ using KOS.Data.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace KOS.Data.EF
 {
@@ -59,7 +62,29 @@ namespace KOS.Data.EF
         public DbSet<UserInIssue> UserInIssues { set; get; }
         public DbSet<UserInProject> UserInProjects { set; get; }
 
+        
 
+    }
+    public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
+    {
+        public AppDbContext CreateDbContext(string[] args)
+        {
+            var hostBuilder = new HostBuilder()
+                .ConfigureAppConfiguration((hostContext, config) =>
+                {
+                    var env = hostContext.HostingEnvironment;
+                    config.SetBasePath(Directory.GetCurrentDirectory());
+                    config.AddJsonFile("appsettings.json");
+                })
+                .Build();
 
+            var configuration = hostBuilder.Services.GetService<IConfiguration>();
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+            var dbContextOptionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            dbContextOptionsBuilder.UseSqlServer(connectionString);
+
+            return new AppDbContext(dbContextOptionsBuilder.Options);
+        }
     }
 }

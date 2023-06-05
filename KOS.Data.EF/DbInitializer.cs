@@ -43,15 +43,8 @@ namespace KOS.Data.EF
             }
             if (!_userManager.Users.Any())
             {
-                await _userManager.CreateAsync(new AppUser()
-                {
-                    UserName = "admin",
-                    LastName = "Administrator",
-                    Email = "admin@gmail.com",
-                    CreateDate = DateTime.Now,
-                    LastModifiedDate = DateTime.Now,
-                    Status = Status.Active
-                }, "123654$");
+                await _userManager.CreateAsync(new AppUser(Guid.NewGuid().ToString(),"admin", "admin", "app", "adminKOS123@gmail.com", "0123456789", DateTime.Now, "" )
+                , "123654$");
                 var user = await _userManager.FindByNameAsync("admin");
                 await _userManager.AddToRoleAsync(user, "Admin");
             }

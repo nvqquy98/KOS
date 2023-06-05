@@ -1,33 +1,52 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\KOS.Api.csproj": {}
+    "/Users/lexuantan/Projects/KOS/KOS.Api/KOS.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\KOS.Api.csproj": {
+    "/Users/lexuantan/Projects/KOS/KOS.Api/KOS.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\KOS.Api.csproj",
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Api/KOS.Api.csproj",
         "projectName": "KOS.Api",
-        "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\KOS.Api.csproj",
-        "packagesPath": "C:\\Users\\tanlx\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\obj\\",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Api/KOS.Api.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Api/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tanlx\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "/usr/local/share/dotnet/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +59,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -64,7 +95,429 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj",
+        "projectName": "KOS.Application.Dapper",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj",
+        "projectName": "KOS.Application",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj",
+        "projectName": "KOS.Data.EF",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Data.EF/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj"
+              },
+              "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj",
+        "projectName": "KOS.Data",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Data/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj": {
+                "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.16, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj",
+        "projectName": "KOS.Infrastructure",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj",
+        "projectName": "KOS.Utilities",
+        "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj",
+        "packagesPath": "/Users/lexuantan/.nuget/packages/",
+        "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Utilities/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "/usr/local/share/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }

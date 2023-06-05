@@ -14,7 +14,7 @@ namespace KOS.Data.Entities
     public class Permission : DomainEntity<int>
     {
         public Permission() { }
-        public Permission(Guid roleId, string functionId, bool canCreate,
+        public Permission(string roleId, string functionId, bool canCreate,
             bool canRead, bool canUpdate, bool canDelete)
         {
             RoleId = roleId;
@@ -25,9 +25,8 @@ namespace KOS.Data.Entities
             CanDelete = canDelete;
         }
         [Required]
-        public Guid RoleId { get; set; }
+        public string RoleId { get; set; }
 
-        [StringLength(128)]
         [Required]
         public string FunctionId { get; set; }
 

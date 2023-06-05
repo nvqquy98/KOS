@@ -17,10 +17,12 @@ namespace KOS.Data.Entities
         public AppUser()
         {
         }
+
         public AppUser(string id, string userName, string firstName, string lastName,
             string email, string phoneNumber, DateTime dob, string avatarUrl)
         {
             Id = id;
+
             UserName = userName;
             FirstName = firstName;
             LastName = lastName;
