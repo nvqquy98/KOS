@@ -51,12 +51,7 @@ namespace KOS.Api
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
 
-            services.AddControllers()
-                 .AddJsonOptions(options =>
-                 {
-                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
-                     options.JsonSerializerOptions.PropertyNamingPolicy = null;
-                 });
+            services.AddControllers();
 
             services.AddSwaggerGen(c =>
             {
@@ -92,6 +87,9 @@ namespace KOS.Api
                     });
             });
 
+            string issuer = Configuration.GetValue<string>("Tokens:Issuer");
+            string signingKey = Configuration.GetValue<string>("Tokens:Key");
+            byte[] signingKeyBytes = System.Text.Encoding.UTF8.GetBytes(signingKey);
 
             services.AddAuthentication(opt =>
             {
@@ -105,32 +103,45 @@ namespace KOS.Api
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuer = true,
+                    ValidIssuer = issuer,
                     ValidateAudience = true,
+                    ValidAudience = issuer,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
                     ClockSkew = System.TimeSpan.Zero,
+                    IssuerSigningKey = new SymmetricSecurityKey(signingKeyBytes)
                 };
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseRouting();
+
             if (env.EnvironmentName == Environments.Development)
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseStaticFiles();
-            app.UseCors("TeduCorsPolicy");
+            app.UseCors("KosCorsPolicy");
 
             app.UseSwagger();
             app.UseSwaggerUI(s =>
             {
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "Project API v1.1");
             });
+            app.UseEndpoints(routes =>
+            {
+                routes.MapControllerRoute(
+                    "default",
+                   "{controller=Home}/{action=Index}/{id?}");
+            });
 
-            
         }
     }
 }

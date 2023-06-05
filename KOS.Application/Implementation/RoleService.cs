@@ -35,6 +35,7 @@ namespace KOS.Application.Implementation
         {
             var role = new AppRole()
             {
+                Id = Guid.NewGuid().ToString(),
                 Name = roleVm.Name,
                 Description = roleVm.Description
             };

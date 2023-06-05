@@ -11,9 +11,8 @@
   "profiles": {
     "KOS.Api": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7223;http://localhost:5049",
+      "applicationUrl": "https://localhost:5001",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

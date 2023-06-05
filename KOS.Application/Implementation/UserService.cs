@@ -35,6 +35,7 @@ namespace KOS.Application.Implementation
             _mapper = mapper;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _config = config;
         }
         public async Task<ApiResult<string>> Authencate(LoginRequest request)
         {
@@ -75,7 +76,10 @@ namespace KOS.Application.Implementation
                 Email = userVm.Email,
                 LastName = userVm.LastName,
                 CreateDate = DateTime.Now,
-                PhoneNumber = userVm.PhoneNumber
+                PhoneNumber = userVm.PhoneNumber,
+                FirstName = userVm.FirstName,
+                Dob = DateTime.Parse( userVm.Dob),
+                
             };
             user.Id = Guid.NewGuid().ToString();
             var result = await _userManager.CreateAsync(user, userVm.Password);
