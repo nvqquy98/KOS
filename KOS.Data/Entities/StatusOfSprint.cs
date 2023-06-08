@@ -11,25 +11,21 @@ using KOS.Data.Enums;
 
 namespace KOS.Data.Entities
 {   
-    [Table("StatusOfSprints")]
+    [Table("StatusIssues")]
     public class StatusOfSprint : IDateTracking
     {
             [Key]
-            public string? Id { get; set; }
+            public int Id { get; set; }
 
-            [MaxLength(50)]
-            [Column(TypeName = "varchar(50)")]
-            [Required]
-            public string? ProjectId { get; set; }
+            //[MaxLength(50)]
+            //[Column(TypeName = "varchar(50)")]
+            //[Required]
+            //public string? ProjectId { get; set; }
 
             [MaxLength(500)]
             public string? Name { get; set; }
 
             public string? Description { get; set; }
-
-            public int? Limit { get; set; }
-
-            public int ListPosition { get; set; }
 
 
 
