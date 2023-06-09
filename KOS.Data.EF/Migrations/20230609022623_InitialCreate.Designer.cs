@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KOS.Data.EF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230601055145_initMigration")]
-    partial class initMigration
+    [Migration("20230609022623_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -266,8 +266,11 @@ namespace KOS.Data.EF.Migrations
 
             modelBuilder.Entity("KOS.Data.Entities.Comment", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Body")
                         .IsRequired()
@@ -294,45 +297,17 @@ namespace KOS.Data.EF.Migrations
                     b.ToTable("Comments");
                 });
 
-            modelBuilder.Entity("KOS.Data.Entities.Function", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("IconCss")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<string>("ParentId")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
-                    b.Property<string>("URL")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Functions");
-                });
-
             modelBuilder.Entity("KOS.Data.Entities.Issue", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AssignId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -366,21 +341,19 @@ namespace KOS.Data.EF.Migrations
 
                     b.Property<string>("ReporterId")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Sample")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                    b.Property<int>("SampleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SprintId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("StatusId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TimeRemaining")
                         .HasColumnType("int");
@@ -396,36 +369,6 @@ namespace KOS.Data.EF.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Issues");
-                });
-
-            modelBuilder.Entity("KOS.Data.Entities.Permission", b =>
-                {
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("FunctionId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("CanCreate")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("CanDelete")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("CanRead")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("CanUpdate")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.HasKey("RoleId", "FunctionId");
-
-                    b.HasIndex("FunctionId");
-
-                    b.ToTable("Permissions");
                 });
 
             modelBuilder.Entity("KOS.Data.Entities.Project", b =>
@@ -448,6 +391,7 @@ namespace KOS.Data.EF.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OwnerUserId")
@@ -460,13 +404,37 @@ namespace KOS.Data.EF.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("KOS.Data.Entities.RoleProject", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RoleProjects");
+                });
+
             modelBuilder.Entity("KOS.Data.Entities.Sprint", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("Board")
-                        .HasColumnType("nvarchar(max)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+
+                    b.Property<int?>("BoardId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -499,10 +467,13 @@ namespace KOS.Data.EF.Migrations
                     b.ToTable("Sprints");
                 });
 
-            modelBuilder.Entity("KOS.Data.Entities.StatusOfSprint", b =>
+            modelBuilder.Entity("KOS.Data.Entities.StatusIssue", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
@@ -513,41 +484,29 @@ namespace KOS.Data.EF.Migrations
                     b.Property<DateTime?>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Limit")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ListPosition")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("ProjectId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("StatusOfSprints");
+                    b.ToTable("StatusIssues");
                 });
 
-            modelBuilder.Entity("KOS.Data.Entities.UserInIssue", b =>
+            modelBuilder.Entity("KOS.Data.Entities.UpdateProject", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleProjectId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("IssueId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("SprintId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SampleId")
+                        .HasColumnType("int");
 
-                    b.HasKey("UserId", "IssueId");
+                    b.HasKey("RoleProjectId", "StatusId", "SampleId");
 
-                    b.ToTable("UserInIssues");
+                    b.ToTable("UpdateProject");
                 });
 
             modelBuilder.Entity("KOS.Data.Entities.UserInProject", b =>
@@ -557,6 +516,10 @@ namespace KOS.Data.EF.Migrations
 
                     b.Property<string>("ProjectId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleProjectId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "ProjectId");
 
@@ -688,25 +651,6 @@ namespace KOS.Data.EF.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("KOS.Data.Entities.Permission", b =>
-                {
-                    b.HasOne("KOS.Data.Entities.Function", "Function")
-                        .WithMany()
-                        .HasForeignKey("FunctionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("KOS.Data.Entities.AppRole", "AppRole")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppRole");
-
-                    b.Navigation("Function");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

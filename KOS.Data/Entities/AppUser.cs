@@ -22,7 +22,6 @@ namespace KOS.Data.Entities
             string email, string phoneNumber, DateTime dob, string avatarUrl)
         {
             Id = id;
-
             UserName = userName;
             FirstName = firstName;
             LastName = lastName;

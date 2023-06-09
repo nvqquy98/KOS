@@ -30,11 +30,10 @@ namespace KOS.Data.EF
 
            
 
-            builder.Entity<Permission>()
-                       .HasKey(c => new { c.RoleId, c.FunctionId });
+            builder.Entity<UpdateProject>()
+                       .HasKey(c => new { c.RoleProjectId, c.StatusId, c.SampleId });
 
-            builder.Entity<UserInIssue>()
-                        .HasKey(c => new { c.UserId, c.IssueId });
+          
 
             builder.Entity<UserInProject>()
                        .HasKey(c => new { c.UserId, c.ProjectId });
@@ -51,15 +50,14 @@ namespace KOS.Data.EF
 
         public DbSet<Comment> Comments { set; get; }
 
-        public DbSet<Function> Functions { set; get; }
         public DbSet<Issue> Issues { set; get; }
 
-        public DbSet<Permission> Permissions { set; get; }
+        public DbSet<RoleProject> RoleProjects { set; get; }
         public DbSet<Project> Projects { set; get; }
         public DbSet<Sprint> Sprints { set; get; }
-        public DbSet<StatusOfSprint> StatusOfSprints { set; get; }
+        public DbSet<StatusIssue> StatusIssues { set; get; }
+        public DbSet<UpdateProject> UpdateProjects { set; get; }
 
-        public DbSet<UserInIssue> UserInIssues { set; get; }
         public DbSet<UserInProject> UserInProjects { set; get; }
 
         

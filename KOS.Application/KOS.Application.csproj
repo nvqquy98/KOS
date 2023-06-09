@@ -19,9 +19,7 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Implementation\" />
     <Folder Include="AutoMapper\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Common\" />
-    <Folder Include="ViewModels\System\" />
     <Folder Include="ViewModels\Login\" />
   </ItemGroup>
   <ItemGroup>

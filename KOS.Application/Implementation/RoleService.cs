@@ -13,21 +13,19 @@ namespace KOS.Application.Implementation
     public class RoleService : IRoleService
     {
         private RoleManager<AppRole> _roleManager;
-        private IRepository<Function, string> _functionRepository;
-        private IRepository<Permission, int> _permissionRepository;
+        //private IRepository<Function, string> _functionRepository;
+        //private IRepository<Permission, int> _permissionRepository;
         private IMapper _mapper;
         private IUnitOfWork _unitOfWork;
 
         public RoleService(RoleManager<AppRole> roleManager,
             IUnitOfWork unitOfWork,
-         IRepository<Function, string> functionRepository,
-         IRepository<Permission, int> permissionRepository,
+        
              IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _roleManager = roleManager;
-            _functionRepository = functionRepository;
-            _permissionRepository = permissionRepository;
+           
             _mapper = mapper;
         }
 
@@ -46,21 +44,21 @@ namespace KOS.Application.Implementation
             return result.Succeeded;
         }
 
-        public Task<bool> CheckPermission(string functionId, string action, string[] roles)
-        {
-            var functions = _functionRepository.FindAll();
-            var permissions = _permissionRepository.FindAll();
-            var query = from f in functions
-                        join p in permissions on f.Id equals p.FunctionId
-                        join r in _roleManager.Roles on p.RoleId equals r.Id
-                        where roles.Contains(r.Name) && f.Id == functionId
-                        && ((p.CanCreate && action == "Create")
-                        || (p.CanUpdate && action == "Update")
-                        || (p.CanDelete && action == "Delete")
-                        || (p.CanRead && action == "Read"))
-                        select p;
-            return query.AnyAsync();
-        }
+        //public Task<bool> CheckPermission(string functionId, string action, string[] roles)
+        //{
+        //    //var functions = _functionRepository.FindAll();
+        //    //var permissions = _permissionRepository.FindAll();
+        //    //var query = from f in functions
+        //    //            join p in permissions on f.Id equals p.FunctionId
+        //    //            join r in _roleManager.Roles on p.RoleId equals r.Id
+        //    //            where roles.Contains(r.Name) && f.Id == functionId
+        //    //            && ((p.CanCreate && action == "Create")
+        //    //            || (p.CanUpdate && action == "Update")
+        //    //            || (p.CanDelete && action == "Delete")
+        //    //            || (p.CanRead && action == "Read"))
+        //    //            select p;
+        //    //return query.AnyAsync();
+        //}
 
         public async Task DeleteAsync(string id)
         {
@@ -102,40 +100,40 @@ namespace KOS.Application.Implementation
             return _mapper.Map<AppRole, AppRoleViewModel>(role);
         }
 
-        public List<PermissionViewModel> GetListFunctionWithRole(string roleId)
-        {
-            var functions = _functionRepository.FindAll();
-            var permissions = _permissionRepository.FindAll();
+        //public List<PermissionViewModel> GetListFunctionWithRole(string roleId)
+        //{
+        //    //var functions = _functionRepository.FindAll();
+        //    //var permissions = _permissionRepository.FindAll();
 
-            var query = from f in functions
-                        join p in permissions on f.Id equals p.FunctionId into fp
-                        from p in fp.DefaultIfEmpty()
-                        where p != null && p.RoleId == roleId
-                        select new PermissionViewModel()
-                        {
-                            RoleId = roleId,
-                            FunctionId = f.Id,
-                            CanCreate = p != null ? p.CanCreate : false,
-                            CanDelete = p != null ? p.CanDelete : false,
-                            CanRead = p != null ? p.CanRead : false,
-                            CanUpdate = p != null ? p.CanUpdate : false
-                        };
-            return query.ToList();
-        }
+        //    //var query = from f in functions
+        //    //            join p in permissions on f.Id equals p.FunctionId into fp
+        //    //            from p in fp.DefaultIfEmpty()
+        //    //            where p != null && p.RoleId == roleId
+        //    //            select new PermissionViewModel()
+        //    //            {
+        //    //                RoleId = roleId,
+        //    //                FunctionId = f.Id,
+        //    //                CanCreate = p != null ? p.CanCreate : false,
+        //    //                CanDelete = p != null ? p.CanDelete : false,
+        //    //                CanRead = p != null ? p.CanRead : false,
+        //    //                CanUpdate = p != null ? p.CanUpdate : false
+        //    //            };
+        //    //return query.ToList();
+        //}
 
         public void SavePermission(List<PermissionViewModel> permissionVms, string roleId)
         {
-            var permissions = _mapper.Map<List<PermissionViewModel>, List<Permission>>(permissionVms);
-            var oldPermission = _permissionRepository.FindAll().Where(x => x.RoleId == roleId).ToList();
-            if (oldPermission.Count > 0)
-            {
-                _permissionRepository.RemoveMultiple(oldPermission);
-            }
-            foreach (var permission in permissions)
-            {
-                _permissionRepository.Add(permission);
-            }
-            _unitOfWork.Commit();
+            //var permissions = _mapper.Map<List<PermissionViewModel>, List<Permission>>(permissionVms);
+            //var oldPermission = _permissionRepository.FindAll().Where(x => x.RoleId == roleId).ToList();
+            //if (oldPermission.Count > 0)
+            //{
+            //    _permissionRepository.RemoveMultiple(oldPermission);
+            //}
+            //foreach (var permission in permissions)
+            //{
+            //    _permissionRepository.Add(permission);
+            //}
+            //_unitOfWork.Commit();
         }
 
         public async Task UpdateAsync(AppRoleViewModel roleVm)

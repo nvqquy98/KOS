@@ -15,7 +15,6 @@ namespace KOS.Application.AutoMapper
             //CreateMap<Product, ProductViewModel>();
             //CreateMap<Announcement, AnnouncementViewModel>().MaxDepth(2);
 
-            CreateMap<Function, FunctionViewModel>();
             CreateMap<AppUser, AppUserViewModel>();
             CreateMap<AppRole, AppRoleViewModel>();
             //CreateMap<Bill, BillViewModel>();

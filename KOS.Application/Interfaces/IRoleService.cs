@@ -19,11 +19,11 @@ namespace KOS.Application.Interfaces
 
         Task UpdateAsync(AppRoleViewModel userVm);
 
-        List<PermissionViewModel> GetListFunctionWithRole(string roleId);
+        //List<PermissionViewModel> GetListFunctionWithRole(string roleId);
 
         void SavePermission(List<PermissionViewModel> permissions, string roleId);
 
-        Task<bool> CheckPermission(string functionId, string action, string[] roles);
+        //Task<bool> CheckPermission(string functionId, string action, string[] roles);
     }
 }
 

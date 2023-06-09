@@ -15,21 +15,17 @@ namespace KOS.Data.Entities
     public class Issue : IDateTracking
     {
         [Key]
-        public string Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+      
+        public int StatusId { get; set; }
 
-        [MaxLength(50)]
-        [Required]
-        [Column(TypeName = "varchar(50)")]
-        public string StatusId { get; set; }
+        public int SampleId { get; set; }
 
-        [MaxLength(50)]
-        [Required]
-        [Column(TypeName = "varchar(50)")]
-        public Sample Sample { get; set; }
+        public int SprintId { get; set; }
 
-        [MaxLength(50)]
-        [Required]
-        [Column(TypeName = "varchar(50)")]
+        public string AssignId { get; set; }
+
         public string ReporterId { get; set; }
 
         [MaxLength(500)]
@@ -49,7 +45,7 @@ namespace KOS.Data.Entities
         public string Labels { get; set; }
 
         public int? NumberOfComments { get; set; }
-        //public DateTime DealineDate { get; set; }
+
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public DateTime CreateDate { get; set; }

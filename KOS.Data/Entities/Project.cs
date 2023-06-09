@@ -14,18 +14,18 @@ namespace KOS.Data.Entities
     public class Project : IDateTracking
     {
         [Key]
-        public string? Id { get; set; }
+        public string Id { get; set; }
 
-        public string? Name { get; set; }
+        public string Name { get; set; }
 
         [MaxLength(500)]
         [Required]
-        public string? Description { get; set; }
+        public string Description { get; set; }
 
         [Required]
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
-        public string? OwnerUserId { get; set; }
+        public string OwnerUserId { get; set; }
 
         public string? AvatarUrl { get; set; }
 

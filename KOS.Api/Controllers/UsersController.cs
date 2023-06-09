@@ -72,7 +72,45 @@ namespace KOS.Api.Controllers
         }
 
 
-       
+        //PUT: http://localhost/api/users/id
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.GetAllAsync();
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery]GetUserPagingRequest request)
+        {
+            var users = await _userService.GetAllPagingAsync(request);
+            return Ok(users);
+        }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var result = await _userService.Delete(id);
+            return Ok(result);
+        }
+        [HttpPut("{id}/roles")]
+        public async Task<IActionResult> RoleAssign(string id, [FromBody] RoleAssignRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.RoleAssign(id, request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
     }
 }
 

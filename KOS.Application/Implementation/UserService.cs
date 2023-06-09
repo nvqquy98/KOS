@@ -42,7 +42,7 @@ namespace KOS.Application.Implementation
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user == null) return new ApiErrorResult<string>("Tài khoản không tồn tại");
 
-            var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
+            var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, true);
             if (!result.Succeeded)
             {
                 return new ApiErrorResult<string>("Đăng nhập không đúng");
@@ -98,45 +98,58 @@ namespace KOS.Application.Implementation
             await _userManager.DeleteAsync(user);
         }
 
-        public async Task<List<AppUserViewModel>> GetAllAsync()
+        public async Task<ApiResult<List<AppUserViewModel>>> GetAllAsync()
         {
-            return await _mapper.ProjectTo<AppUserViewModel>(_userManager.Users).ToListAsync();
+            
+            var result = await _mapper.ProjectTo<AppUserViewModel>(_userManager.Users).ToListAsync();
+            if(result.Count > 0)
+            {
+                return  new ApiSuccessResult<List<AppUserViewModel>>(result);
+            }
+            else
+            {
+                return new ApiErrorResult<List<AppUserViewModel>>("User không tồn tại");
+            }
         }
 
-        public PagedResult<AppUserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize)
+        public async Task<ApiResult<PagedResult<AppUserViewModel>>> GetAllPagingAsync(GetUserPagingRequest request)
         {
             var query = _userManager.Users;
-            if (!string.IsNullOrEmpty(keyword))
-                query = query.Where(x => x.LastName.Contains(keyword)
-                || x.UserName.Contains(keyword)
-                || x.Email.Contains(keyword));
-
-            int totalRow = query.Count();
-            query = query.Skip((page - 1) * pageSize)
-               .Take(pageSize);
-
-            var data = query.Select(x => new AppUserViewModel()
+            if (!string.IsNullOrEmpty(request.Keyword))
             {
-                UserName = x.UserName,
-                AvatarUrl = x.AvatarUrl,
-                Dob = x.Dob.ToString(),
-                Email = x.Email,
-                LastName = x.LastName,
-                PhoneNumber = x.PhoneNumber,
-                Status = x.Status,
-                CreateDate = x.CreateDate
-            }).ToList();
-            var paginationSet = new PagedResult<AppUserViewModel>()
+                query = query.Where(x => x.UserName.Contains(request.Keyword)
+                 || x.PhoneNumber.Contains(request.Keyword));
+            }
+
+            //3. Paging
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((request.PageIndex - 1) * request.PageSize)
+                .Take(request.PageSize)
+                .Select(x => new AppUserViewModel()
+                {
+                    UserName = x.UserName,
+                    AvatarUrl = x.AvatarUrl,
+                    Dob = x.Dob.ToString(),
+                    Email = x.Email,
+                    LastName = x.LastName,
+                    PhoneNumber = x.PhoneNumber,
+                    Status = x.Status,
+                    CreateDate = x.CreateDate
+                }).ToListAsync();
+
+            //4. Select and projection
+            var pagedResult = new PagedResult<AppUserViewModel>()
             {
-                Items = data,
-                PageIndex = page,
                 TotalRecords = totalRow,
-                PageSize = pageSize
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                Items = data
             };
-
-            return paginationSet;
+            return new ApiSuccessResult<PagedResult<AppUserViewModel>>(pagedResult);
         }
 
+       
         public async Task<AppUserViewModel> GetById(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -185,6 +198,49 @@ namespace KOS.Application.Implementation
             return new ApiErrorResult<bool>("Cập nhật không thành công");
 
 
+        }
+
+        public async Task<ApiResult<bool>> RoleAssign(string id, RoleAssignRequest request)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return new ApiErrorResult<bool>("Tài khoản không tồn tại");
+            }
+            var removedRoles = request.Roles.Where(x => x.Selected == false).Select(x => x.Name).ToList();
+            foreach (var roleName in removedRoles)
+            {
+                if (await _userManager.IsInRoleAsync(user, roleName) == true)
+                {
+                    await _userManager.RemoveFromRoleAsync(user, roleName);
+                }
+            }
+            await _userManager.RemoveFromRolesAsync(user, removedRoles);
+
+            var addedRoles = request.Roles.Where(x => x.Selected).Select(x => x.Name).ToList();
+            foreach (var roleName in addedRoles)
+            {
+                if (await _userManager.IsInRoleAsync(user, roleName) == false)
+                {
+                    await _userManager.AddToRoleAsync(user, roleName);
+                }
+            }
+
+            return new ApiSuccessResult<bool>();
+        }
+
+        public async Task<ApiResult<bool>> Delete(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            if (user == null)
+            {
+                return new ApiErrorResult<bool>("User không tồn tại");
+            }
+            var reult = await _userManager.DeleteAsync(user);
+            if (reult.Succeeded)
+                return new ApiSuccessResult<bool>();
+
+            return new ApiErrorResult<bool>("Xóa không thành công");
         }
     }
 }

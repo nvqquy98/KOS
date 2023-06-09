@@ -7,6 +7,7 @@ namespace KOS.Data.Entities
 
     public class UserInProject
     {
+
         public string UserId { get; set; }
         public string ProjectId { get; set; }
         public string RoleProjectId { get; set; }

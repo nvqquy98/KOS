@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KOS.Data.EF.Migrations
 {
-    public partial class initMigration : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -119,7 +119,8 @@ namespace KOS.Data.EF.Migrations
                 name: "Comments",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Body = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     IssueId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
@@ -129,23 +130,6 @@ namespace KOS.Data.EF.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Comments", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Functions",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    URL = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    ParentId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    IconCss = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SortOrder = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Functions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -166,10 +150,13 @@ namespace KOS.Data.EF.Migrations
                 name: "Issues",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    StatusId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    Sample = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
-                    ReporterId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StatusId = table.Column<int>(type: "int", nullable: false),
+                    SampleId = table.Column<int>(type: "int", nullable: false),
+                    SprintId = table.Column<int>(type: "int", nullable: false),
+                    AssignId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ReporterId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Priority = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -194,7 +181,7 @@ namespace KOS.Data.EF.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     OwnerUserId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
                     AvatarUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -207,11 +194,26 @@ namespace KOS.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "RoleProjects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProjectId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoleProjects", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Sprints",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Board = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BoardId = table.Column<int>(type: "int", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -227,34 +229,32 @@ namespace KOS.Data.EF.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "StatusOfSprints",
+                name: "StatusIssues",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProjectId = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Limit = table.Column<int>(type: "int", nullable: true),
-                    ListPosition = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_StatusOfSprints", x => x.Id);
+                    table.PrimaryKey("PK_StatusIssues", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserInIssues",
+                name: "UpdateProject",
                 columns: table => new
                 {
-                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IssueId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    SprintId = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    RoleProjectId = table.Column<int>(type: "int", nullable: false),
+                    SampleId = table.Column<int>(type: "int", nullable: false),
+                    StatusId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserInIssues", x => new { x.UserId, x.IssueId });
+                    table.PrimaryKey("PK_UpdateProject", x => new { x.RoleProjectId, x.StatusId, x.SampleId });
                 });
 
             migrationBuilder.CreateTable(
@@ -262,7 +262,8 @@ namespace KOS.Data.EF.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ProjectId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ProjectId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleProjectId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -375,35 +376,6 @@ namespace KOS.Data.EF.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Permissions",
-                columns: table => new
-                {
-                    RoleId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FunctionId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CanCreate = table.Column<bool>(type: "bit", nullable: false),
-                    CanRead = table.Column<bool>(type: "bit", nullable: false),
-                    CanUpdate = table.Column<bool>(type: "bit", nullable: false),
-                    CanDelete = table.Column<bool>(type: "bit", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Permissions", x => new { x.RoleId, x.FunctionId });
-                    table.ForeignKey(
-                        name: "FK_Permissions_AspNetRoles_RoleId",
-                        column: x => x.RoleId,
-                        principalTable: "AspNetRoles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Permissions_Functions_FunctionId",
-                        column: x => x.FunctionId,
-                        principalTable: "Functions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -442,11 +414,6 @@ namespace KOS.Data.EF.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Permissions_FunctionId",
-                table: "Permissions",
-                column: "FunctionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -485,31 +452,28 @@ namespace KOS.Data.EF.Migrations
                 name: "Issues");
 
             migrationBuilder.DropTable(
-                name: "Permissions");
+                name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "RoleProjects");
 
             migrationBuilder.DropTable(
                 name: "Sprints");
 
             migrationBuilder.DropTable(
-                name: "StatusOfSprints");
+                name: "StatusIssues");
 
             migrationBuilder.DropTable(
-                name: "UserInIssues");
+                name: "UpdateProject");
 
             migrationBuilder.DropTable(
                 name: "UserInProjects");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Functions");
+                name: "AspNetUsers");
 
             migrationBuilder.DropSequence(
                 name: "KOSAppSequence");

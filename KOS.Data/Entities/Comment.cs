@@ -1,11 +1,6 @@
 ﻿using KOS.Data.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KOS.Data.Entities
 {
@@ -14,7 +9,8 @@ namespace KOS.Data.Entities
     public class Comment : IDateTracking
     {
         [Key]
-        public string Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
 
         [MaxLength(500)]
         [Required]

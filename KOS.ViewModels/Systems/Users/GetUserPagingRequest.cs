@@ -4,14 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KOS.Data.Enums
+namespace KOS.ViewModels.Systems.Users
 {
-    public enum CommandCode
+    internal class GetUserPagingRequest
     {
-        CREATE,
-        UPDATE,
-        DELETE,
-        VIEW,
-        APPROVE
     }
 }

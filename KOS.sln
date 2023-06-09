@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Api", "KOS.Api\KOS.Api.csproj", "{31BB37C5-8922-4DE4-B4FC-2815CA2215ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Api", "KOS.Api\KOS.Api.csproj", "{31BB37C5-8922-4DE4-B4FC-2815CA2215ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Data", "KOS.Data\KOS.Data.csproj", "{74E845F9-F83C-4C47-BDBF-C1A669E3B4EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Data", "KOS.Data\KOS.Data.csproj", "{74E845F9-F83C-4C47-BDBF-C1A669E3B4EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Data.EF", "KOS.Data.EF\KOS.Data.EF.csproj", "{7AB348D2-D56E-46E7-90A9-F37BEC7E1506}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Data.EF", "KOS.Data.EF\KOS.Data.EF.csproj", "{7AB348D2-D56E-46E7-90A9-F37BEC7E1506}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Infrastructure", "KOS.Infrastructure\KOS.Infrastructure.csproj", "{19AE0603-7898-4C8A-8DE5-5153FC25D8C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Infrastructure", "KOS.Infrastructure\KOS.Infrastructure.csproj", "{19AE0603-7898-4C8A-8DE5-5153FC25D8C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Application", "KOS.Application\KOS.Application.csproj", "{570809F5-076A-4D3A-8E3B-7490F2FBFFBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Application", "KOS.Application\KOS.Application.csproj", "{570809F5-076A-4D3A-8E3B-7490F2FBFFBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Application.Dapper", "KOS.Application.Dapper\KOS.Application.Dapper.csproj", "{3CCF51AF-2DC6-45A1-A0B8-6E1770764146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Application.Dapper", "KOS.Application.Dapper\KOS.Application.Dapper.csproj", "{3CCF51AF-2DC6-45A1-A0B8-6E1770764146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KOS.Utilities", "KOS.Utilities\KOS.Utilities.csproj", "{71E1A542-3852-4420-93A7-EC88CA16B455}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KOS.Utilities", "KOS.Utilities\KOS.Utilities.csproj", "{71E1A542-3852-4420-93A7-EC88CA16B455}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

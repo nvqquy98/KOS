@@ -22,8 +22,8 @@ namespace KOS.Application.AutoMapper
             .ConstructUsing(c => new AppUser(c.Id,  c.UserName, c.FirstName, c.LastName,
             c.Email, c.PhoneNumber, c.CreateDate, c.AvatarUrl));
 
-            CreateMap<PermissionViewModel, Permission>()
-            .ConstructUsing(c => new Permission(c.RoleId, c.FunctionId, c.CanCreate, c.CanRead, c.CanUpdate, c.CanDelete));
+            //CreateMap<PermissionViewModel, Permission>()
+            //.ConstructUsing(c => new Permission(c.RoleId, c.FunctionId, c.CanCreate, c.CanRead, c.CanUpdate, c.CanDelete));
 
 
 

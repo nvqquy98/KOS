@@ -13,7 +13,8 @@ namespace KOS.Data.Entities
     public class Sprint : IDateTracking
     {
         [Key]
-        public string? Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int? Id { get; set; }
 
         public int? BoardId { get; set; }
 
