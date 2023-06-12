@@ -50,6 +50,7 @@ namespace KOS.Api
 
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IProjectService, ProjectService>();
 
             services.AddControllers();
 

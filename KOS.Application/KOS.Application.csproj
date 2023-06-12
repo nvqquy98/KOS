@@ -14,6 +14,8 @@
     <None Remove="ViewModels\Common\" />
     <None Remove="ViewModels\System\" />
     <None Remove="ViewModels\Login\" />
+    <None Remove="ViewModels\Content\" />
+    <None Remove="ViewModels\Content\Projects\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
@@ -21,6 +23,8 @@
     <Folder Include="AutoMapper\" />
     <Folder Include="ViewModels\Common\" />
     <Folder Include="ViewModels\Login\" />
+    <Folder Include="ViewModels\Content\" />
+    <Folder Include="ViewModels\Content\Projects\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KOS.Utilities\KOS.Utilities.csproj" />
