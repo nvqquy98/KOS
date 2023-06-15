@@ -2,12 +2,12 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-
+using KOS.Infrastructure.SharedKernel;
 
 namespace KOS.Data.Entities
 {   
     [Table("StatusIssues")]
-    public class StatusIssue : IDateTracking
+    public class StatusIssue : DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

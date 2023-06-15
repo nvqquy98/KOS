@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KOS.Infrastructure.SharedKernel;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace KOS.Data.Entities
 {
     [Table("RoleProjects")]
-    public class RoleProject
+    public class RoleProject : DomainEntity<int>
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

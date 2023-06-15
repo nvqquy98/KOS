@@ -9,7 +9,7 @@ namespace KOS.Application.ViewModels.Content.Projects
         public string Description { get; set; }
 
 
-        public string OwnerUserId { get; set; }
+        public string? OwnerUserId { get; set; }
 
         public string? AvatarUrl { get; set; }
 

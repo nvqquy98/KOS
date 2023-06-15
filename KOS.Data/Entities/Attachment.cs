@@ -7,11 +7,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KOS.Infrastructure.SharedKernel;
 
 namespace KOS.Data.Entities
 {
     [Table("Attachments")]
-    public class Attachment : IDateTracking
+    public class Attachment : DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

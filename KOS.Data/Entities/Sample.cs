@@ -2,12 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using KOS.Data.Interfaces;
+using KOS.Infrastructure.SharedKernel;
 
 namespace KOS.Data.Entities
 {
     [Table("Samples")]
 
-    public class Sample : IDateTracking
+    public class Sample :   DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

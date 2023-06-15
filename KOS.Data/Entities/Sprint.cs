@@ -7,10 +7,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KOS.Infrastructure.SharedKernel;
 
 namespace KOS.Data.Entities
 {
-    public class Sprint : IDateTracking
+    public class Sprint : DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

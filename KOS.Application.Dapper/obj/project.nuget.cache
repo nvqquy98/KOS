@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ysjseujPZE2XK8b088cbIYLh4MI2PhJIw1GLSZ1X6dzOfTlpCniloJS/lqg9JTS3Ak/ekXYPgRV2tZY9iHZNzA==",
+  "dgSpecHash": "4RLJD0spJR8zTaYh48sxkvnwMx0GAxbkj8Bap45TTaqj+2xGZiwPFi70ca8HmfwIGQBFihpGizqtvtmwguib6Q==",
   "success": true,
-  "projectFilePath": "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj",
+  "projectFilePath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Application.Dapper\\KOS.Application.Dapper.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

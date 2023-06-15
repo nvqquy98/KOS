@@ -8,11 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KOS.Data.Enums;
+using KOS.Infrastructure.SharedKernel;
 
 namespace KOS.Data.Entities
 {
     [Table("Issues")]
-    public class Issue : IDateTracking
+    public class Issue : DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

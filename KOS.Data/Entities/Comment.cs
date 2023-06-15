@@ -1,4 +1,5 @@
 ﻿using KOS.Data.Interfaces;
+using KOS.Infrastructure.SharedKernel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,7 +7,7 @@ namespace KOS.Data.Entities
 {
     [Table("Comments")]
 
-    public class Comment : IDateTracking
+    public class Comment : DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

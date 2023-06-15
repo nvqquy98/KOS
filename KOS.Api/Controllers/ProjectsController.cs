@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KOS.Api.Extensions;
 using KOS.Application.Interfaces;
 using KOS.Application.ViewModels.Content.Projects;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,10 @@ namespace KOS.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> PostProject([FromBody] ProjectCreateRequest request)
         {
+            string id = User.GetUserId();
+            request.OwnerUserId = id;
             var result = await _projectService.AddAsync(request);
+            
             return Ok(result);
 
         }

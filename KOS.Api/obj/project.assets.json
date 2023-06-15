@@ -11928,49 +11928,49 @@
     ]
   },
   "packageFolders": {
-    "/Users/lexuantan/.nuget/packages/": {}
+    "C:\\Users\\tanlx\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/lexuantan/Projects/KOS/KOS.Api/KOS.Api.csproj",
+      "projectUniqueName": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\KOS.Api.csproj",
       "projectName": "KOS.Api",
-      "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Api/KOS.Api.csproj",
-      "packagesPath": "/Users/lexuantan/.nuget/packages/",
-      "outputPath": "/Users/lexuantan/Projects/KOS/KOS.Api/obj/",
+      "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\KOS.Api.csproj",
+      "packagesPath": "C:\\Users\\tanlx\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/lexuantan/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\tanlx\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
-        "/usr/local/share/dotnet/sdk/7.0.302/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj": {
-              "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Application.Dapper/KOS.Application.Dapper.csproj"
+            "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Application.Dapper\\KOS.Application.Dapper.csproj": {
+              "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Application.Dapper\\KOS.Application.Dapper.csproj"
             },
-            "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj": {
-              "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Application/KOS.Application.csproj"
+            "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Application\\KOS.Application.csproj": {
+              "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Application\\KOS.Application.csproj"
             },
-            "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj": {
-              "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data.EF/KOS.Data.EF.csproj"
+            "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Data.EF\\KOS.Data.EF.csproj": {
+              "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Data.EF\\KOS.Data.EF.csproj"
             },
-            "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj": {
-              "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Data/KOS.Data.csproj"
+            "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Data\\KOS.Data.csproj": {
+              "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Data\\KOS.Data.csproj"
             },
-            "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj": {
-              "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Infrastructure/KOS.Infrastructure.csproj"
+            "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Infrastructure\\KOS.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Infrastructure\\KOS.Infrastructure.csproj"
             },
-            "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj": {
-              "projectPath": "/Users/lexuantan/Projects/KOS/KOS.Utilities/KOS.Utilities.csproj"
+            "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Utilities\\KOS.Utilities.csproj": {
+              "projectPath": "C:\\Users\\tanlx\\Documents\\KOS\\KOS.Utilities\\KOS.Utilities.csproj"
             }
           }
         }
@@ -12021,7 +12021,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

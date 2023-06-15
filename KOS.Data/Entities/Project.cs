@@ -7,11 +7,12 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KOS.Infrastructure.SharedKernel;
 
 namespace KOS.Data.Entities
 {
     [Table("Projects")]
-    public class Project : IDateTracking
+    public class Project : DomainEntity<string>, IDateTracking
     {
         [Key]
         public string Id { get; set; }

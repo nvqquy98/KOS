@@ -1,11 +1,12 @@
 ﻿using KOS.Data.Interfaces;
+using KOS.Infrastructure.SharedKernel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace KOS.Data.Entities
 {
-    public class Board : IDateTracking
+    public class Board : DomainEntity<int>, IDateTracking
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
