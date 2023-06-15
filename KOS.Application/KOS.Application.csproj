@@ -16,6 +16,8 @@
     <None Remove="ViewModels\Login\" />
     <None Remove="ViewModels\Content\" />
     <None Remove="ViewModels\Content\Projects\" />
+    <None Remove="ViewModels\Content\Board\" />
+    <None Remove="ViewModels\Content\Sprint\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
@@ -25,6 +27,8 @@
     <Folder Include="ViewModels\Login\" />
     <Folder Include="ViewModels\Content\" />
     <Folder Include="ViewModels\Content\Projects\" />
+    <Folder Include="ViewModels\Content\Board\" />
+    <Folder Include="ViewModels\Content\Sprint\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KOS.Utilities\KOS.Utilities.csproj" />

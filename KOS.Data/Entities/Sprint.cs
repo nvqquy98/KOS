@@ -33,8 +33,8 @@ namespace KOS.Data.Entities
         //public string AvatarUrl { get; set; }
         public bool IsActive { get; set; }
         public string? StartUserId { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public DateTime? StartTime { get; set; }
+        public DateTime? EndTime { get; set; }
 
 
         public DateTime CreateDate { get; set; }

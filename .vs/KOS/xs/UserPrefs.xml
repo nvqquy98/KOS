@@ -1,22 +1,29 @@
 ﻿<Properties StartupConfiguration="{31BB37C5-8922-4DE4-B4FC-2815CA2215ED}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/lexuantan/Projects/KOS/KOS.Api/Controllers/UsersController.cs" relfile="KOS.Api/Controllers/UsersController.cs" line="47" column="1" />
-      <Breakpoint file="/Users/lexuantan/Projects/KOS/KOS.Api/Controllers/UsersController.cs" relfile="KOS.Api/Controllers/UsersController.cs" line="50" column="1" />
-      <Breakpoint file="/Users/lexuantan/Projects/KOS/KOS.Api/Controllers/UsersController.cs" relfile="KOS.Api/Controllers/UsersController.cs" line="46" column="1" />
       <Breakpoint file="/Users/lexuantan/Projects/KOS/KOS.Api/Controllers/UsersController.cs" relfile="KOS.Api/Controllers/UsersController.cs" line="30" column="1" />
       <Breakpoint file="/Users/lexuantan/Projects/KOS/KOS.Api/Controllers/WeatherForecastController.cs" relfile="KOS.Api/Controllers/WeatherForecastController.cs" line="26" column="1" />
       <Breakpoint file="/Users/lexuantan/Projects/KOS/KOS.Application/Implementation/UserService.cs" relfile="KOS.Application/Implementation/UserService.cs" line="58" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.KOS.Api PreferredExecutionTarget="/Applications/Safari.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="KOS.Api/appsettings.Development.json">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="KOS.Application/ViewModels/Content/Projects/ProjectCreateRequest.cs">
     <Files>
-      <File FileName="KOS.Data/Entities/Sprint.cs" Line="1" Column="1" />
-      <File FileName="KOS.Data/Entities/Sample.cs" Line="1" Column="1" />
-      <File FileName="KOS.Api/appsettings.Development.json" Line="9" Column="67" />
+      <File FileName="KOS.Data/Entities/Sprint.cs" />
+      <File FileName="KOS.Data/Entities/Sample.cs" />
+      <File FileName="KOS.Data/Entities/RoleProject.cs" />
+      <File FileName="KOS.Data.EF/appsettings.json" />
+      <File FileName="KOS.Api/appsettings.Development.json" />
+      <File FileName="KOS.Api/Controllers/ProjectsController.cs" Line="24" Column="74" />
+      <File FileName="KOS.Application/Interfaces/IUserService.cs" />
+      <File FileName="KOS.Api/Controllers/RolesController.cs" />
+      <File FileName="KOS.Api/Program.cs" />
+      <File FileName="KOS.Api/Startup.cs" Line="10" Column="35" />
+      <File FileName="KOS.Application/ViewModels/Content/Projects/ProjectCreateRequest.cs" Line="4" Column="35" />
+      <File FileName="KOS.Application/Implementation/ProjectService.cs" Line="26" Column="65" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -24,33 +31,37 @@
           <Node name="KOS" expanded="True">
             <Node name="KOS.Api" expanded="True">
               <Node name="Dependencies" expanded="True">
-                <Node name="PackageDependencies" expanded="True" />
-              </Node>
-              <Node name="Properties" expanded="True" />
-              <Node name="appsettings.json" expanded="True" />
-            </Node>
-            <Node name="KOS.Application" expanded="True" />
-            <Node name="KOS.Data" expanded="True">
-              <Node name="Dependencies" expanded="True">
                 <Node name="FrameworkReferences" expanded="True" />
+                <Node name="PackageDependencies" expanded="True" />
                 <Node name="ProjectDependencies" expanded="True" />
               </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="appsettings.json" expanded="True" />
+            </Node>
+            <Node name="KOS.Application" expanded="True">
+              <Node name="Implementation" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
+              <Node name="ViewModels" expanded="True">
+                <Node name="Common" expanded="True" />
+                <Node name="Content" expanded="True">
+                  <Node name="Projects" expanded="True" selected="True" />
+                </Node>
+                <Node name="Login" expanded="True" />
+                <Node name="System" expanded="True" />
+              </Node>
+            </Node>
+            <Node name="KOS.Application.Dapper" expanded="True" />
+            <Node name="KOS.Data" expanded="True">
               <Node name="Entities" expanded="True" />
-              <Node name="Enums" expanded="True" />
             </Node>
-            <Node name="KOS.Data.EF" expanded="True">
-              <Node name="Configurations" expanded="True" />
-            </Node>
+            <Node name="KOS.Data.EF" expanded="True" />
             <Node name="KOS.Infrastructure" expanded="True">
-              <Node name="SharedKernel" expanded="True" />
-            </Node>
-            <Node name="KOS.Utilities" expanded="True">
-              <Node name="Dtos" expanded="True" />
+              <Node name="Enums" expanded="True" />
+              <Node name="Interfaces" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.KOS.Api PreferredExecutionTarget="/Applications/Safari.app" />
 </Properties>

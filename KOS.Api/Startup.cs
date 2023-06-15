@@ -51,7 +51,10 @@ namespace KOS.Api
             services.AddTransient<IRoleService, RoleService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IProjectService, ProjectService>();
+            services.AddTransient<IBoardService, BoardService>();
+            services.AddTransient<ISprintService, SprintService>();
 
+        
             services.AddControllers();
 
             services.AddSwaggerGen(c =>

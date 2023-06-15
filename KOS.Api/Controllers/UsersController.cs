@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using KOS.Application.Implementation;
 using KOS.Application.Interfaces;
+using KOS.Application.ViewModels.Content.Projects;
 using KOS.Application.ViewModels.Login;
 using KOS.Application.ViewModels.System;
 using Microsoft.AspNetCore.Authorization;
@@ -71,8 +73,22 @@ namespace KOS.Api.Controllers
             return Ok(result);
         }
 
+        //delete: http://localhost/api/projects/id
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        //PUT: http://localhost/api/users/id
+            var result = await _userService.Delete(id);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        //get: http://localhost/api/users
         [HttpGet]
         public async Task<IActionResult> GetUsers()
         {
@@ -92,12 +108,7 @@ namespace KOS.Api.Controllers
             var users = await _userService.GetAllPagingAsync(request);
             return Ok(users);
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
-        {
-            var result = await _userService.Delete(id);
-            return Ok(result);
-        }
+        
         [HttpPut("{id}/roles")]
         public async Task<IActionResult> RoleAssign(string id, [FromBody] RoleAssignRequest request)
         {

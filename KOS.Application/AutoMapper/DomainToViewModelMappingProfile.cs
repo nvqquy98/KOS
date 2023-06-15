@@ -4,6 +4,8 @@ using KOS.Application.ViewModels.System;
 using KOS.Data.Entities;
 using System.Drawing;
 using System.Reflection.Metadata;
+using KOS.Application.ViewModels.Content.Projects;
+using KOS.Application.ViewModels.Content.Board;
 
 namespace KOS.Application.AutoMapper
 {
@@ -17,6 +19,9 @@ namespace KOS.Application.AutoMapper
 
             CreateMap<AppUser, AppUserViewModel>();
             CreateMap<AppRole, AppRoleViewModel>();
+            CreateMap<Project, ProjectViewModel>();
+            CreateMap<Board, BoardViewModel>();
+
             //CreateMap<Bill, BillViewModel>();
             //CreateMap<BillDetail, BillDetailViewModel>();
             //CreateMap<Color, ColorViewModel>();
